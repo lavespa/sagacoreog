@@ -1,0 +1,30 @@
+server:
+  compression:
+    enabled: true
+  port: 8070
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  application:
+    name: consegne-service
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.178.30:9092
+      group-id: consegne-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: 192.168.178.30:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+        
+
